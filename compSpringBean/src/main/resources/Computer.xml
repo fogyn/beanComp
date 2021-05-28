@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p = "http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="cpu" class="serg.devices.Cpu"
+          p:freqency="2000"
+          p:ydro="10"
+          p:manufacture="Taiwan"
+          p:weight="2000"
+    />
+    <bean id="memory" class="serg.devices.Memory"
+          p:type="ddr3"
+          p:volume="20"
+          p:weight="1"
+
+    />
+    <bean id="hard" class="serg.devices.HardDisk"
+          p:type="sdd"
+          p:volume="1000"
+          p:weight="2"
+    />
+    <bean id="monitor" class="serg.devices.Monitor"
+          p:diagonal="30"
+          p:type="led"
+          p:weight="10"
+    />
+    <bean id="board" class="serg.devices.CustomerClipboard"
+          p:type="sensor"
+          p:light="true"
+          p:weight="1"
+    />
+
+
+    <bean id="comp" class="serg.Computer">
+        <constructor-arg ref="cpu"/>
+        <constructor-arg ref="memory"/>
+        <constructor-arg ref="hard"/>
+        <constructor-arg ref="monitor"/>
+        <constructor-arg ref="board"/>
+
+    </bean>
+
+</beans>
